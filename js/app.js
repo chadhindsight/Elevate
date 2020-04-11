@@ -60,3 +60,9 @@ console.log(negativeNancy.name)
 console.log(komplainingKaren.name)
 console.log(broodingBrody.name, broodingBrody.weakness)
 
+///////NOTES///////
+
+// Maybe make a function to calculate critical hits and pass that function to any functions that deals with attacks
+// Logic for critical strike: 
+// let critical = Math.floor((Math.random() * 10) + 1);
+// critical === 1 ? hp -= 30 : hp
