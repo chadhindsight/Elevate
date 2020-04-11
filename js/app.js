@@ -4,7 +4,7 @@ class Enemy {
     constructor(name, hp, weakness) {
         this.name = name
         this.hp = 100;
-        this.weakness = weakness;
+        this.weakness = [];
     }
     attack() {
 
@@ -15,18 +15,23 @@ class Enemy {
 class Angry extends Enemy {
     constructor(name, hp, weakness){
         super(name, weakness)
+        this.weakness = ['shaq face', 'shaq rave', 'chef ainsley yea boi']
+
     }
 }
 // Negative class
 class Negative extends Enemy {
     constructor(name, hp, weakness){
         super(name, weakness)
+        this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
+        
     }
 }
 //Bored class
 class Bored extends Enemy {
     constructor(name, hp, weakness){
         super(name, weakness)
+        this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running' ]
     }
 }
 // Tough class
@@ -55,3 +60,4 @@ console.log(negativeNancy.name)
 console.log(komplainingKaren.name)
 console.log(boringBob.name)
 console.log(tigerKing.hp)
+
