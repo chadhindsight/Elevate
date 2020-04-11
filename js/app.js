@@ -58,6 +58,6 @@ console.log(angryAngie.name, angryAngie.hp)
 console.log(crazyCarl.name)
 console.log(negativeNancy.name)
 console.log(komplainingKaren.name)
-console.log(boringBob.name)
+console.log(broodingBrody.name, broodingBrody.weakness)
 console.log(tigerKing.hp)
 
