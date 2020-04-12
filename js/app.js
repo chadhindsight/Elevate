@@ -1,6 +1,7 @@
 let playerTurn = true;
 let playerHp = 100;
 playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme']
+
 // ENEMY CLASSES
 class Enemy {
     constructor(name, hp, weakness) {
