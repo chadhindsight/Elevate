@@ -1,4 +1,5 @@
 let playerTurn = true;
+let playerHp = 100;
 
 // ENEMY CLASSES
 class Enemy {
