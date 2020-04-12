@@ -1,3 +1,4 @@
+let playerTurn = true;
 
 // ENEMY CLASSES
 class Enemy {
@@ -15,7 +16,10 @@ class Enemy {
 class Angry extends Enemy {
     constructor(name, hp, weakness){
         super(name, weakness)
-        this.weakness = ['shaq face', 'shaq rave', 'chef ainsley yea boi']
+        this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
+
+    }
+    attack() {
 
     }
 }
@@ -32,6 +36,9 @@ class Bored extends Enemy {
     constructor(name, hp, weakness){
         super(name, weakness)
         this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running' ]
+    }
+    attack() {
+        
     }
 }
 // Tough class
@@ -65,4 +72,16 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 // Maybe make a function to calculate critical hits and pass that function to any functions that deals with attacks
 // Logic for critical strike: 
 // let critical = Math.floor((Math.random() * 10) + 1);
-// critical === 1 ? hp -= 30 : hp
+// critical === 1 ? hp -= damage * 1.5 : hp
+
+// let superEffective = Math.floor((Math.random() * 10) + 1);
+
+// PLAYER MOVE LOGIC: determine the players turn by checking if boolean equals true and then letting them attack
+// playerTurn = true;
+// Regular damage = 20
+// Make a damage calculator that has all damage related stuff 
+function damageCalc(){
+    // critical 2.0 of base
+    // base 20
+    // superEffective 1.5 of base
+}
