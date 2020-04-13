@@ -1,7 +1,12 @@
-let playerTurn = true;
-let playerHp = 100;
-const playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'];
+// PLAYER CLASS
+class Player{
+    constructor() {
+        this.playerTurn = true;
+        this.hp = 105;
+        this.playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'];
 
+    }
+}
 // ENEMY CLASSES
 class Enemy {
     constructor(name) {
@@ -94,12 +99,10 @@ function damageCalc(character){
     else {
         // critical 
         let critical = Math.floor((Math.random() * 10) + 1);
-        critical == 1 || critical== 5 ? character.hp = character.hp - 25 : character.hp - 20
+        critical >= 5 ? character.hp = character.hp - 25 : character.hp - 20
         // superEffective 1.5 of base
         let superEffective = Math.floor((Math.random() * 10) + 1);
-        superEffective >= 5 ? character.hp - 30 : attack();
-        // base 20
-        attack()
+        superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
     }
     // playerTurn = false;
 }
