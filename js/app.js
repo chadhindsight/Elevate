@@ -1,21 +1,29 @@
-// PLAYER CLASS
-class Player{
-    constructor() {
-        this.playerTurn = true;
-        this.hp = 105;
-        this.playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'];
-
-    }
+// PLAYER CLASS & RELATED STUFF
+ const player = {
+        hp: 105,
+        weakness: ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'],
+        playerTurn: true    
 }
-// ENEMY CLASSES
+// PLAYER MOVE LOGIC: determine the players turn by checking if boolean equals true and then letting them attack
+const playerName = prompt(`What's your name?`);   
+const playerAttack = function () {
+    // Not sure what to pass in as a param
+    damageCalc()
+    playerTurn = false;
+}
+
+///////ENEMY CLASSES//////
 class Enemy {
     constructor(name) {
         this.name = name
         this.hp = 100;
         this.weakness = [];
     }
-    attack(playerHp) {
-        return playerHp -= 20
+    enemyAttack() {
+        setTimeout(() => {
+            damageCalc(player)
+        }, 2000);
+        return playerTurn = true
     }
 }    
 
@@ -57,7 +65,7 @@ class Tough extends Enemy {
 }
 
 
-/////////////CHARACTERS/////////////
+/////////////ENEMY CHARACTERS/////////////
 const angryAngie = new Angry('Angry Angie')
 const crazyCarl = new Angry('Crazy Carl')
 
@@ -68,7 +76,7 @@ let boringBob = new Bored ('Boring Bob')
 const broodingBrody = new Bored('Brooding Brody')
 
 const tigerKing = new Tough('Tiger King')
-
+console.log(playerName)
 console.log(angryAngie.name, angryAngie.hp)
 console.log(crazyCarl.name)
 console.log(negativeNancy.name)
@@ -84,14 +92,7 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 
 // let superEffective = Math.floor((Math.random() * 10) + 1);
 
-// PLAYER MOVE LOGIC: determine the players turn by checking if boolean equals true and then letting them attack
-const playerAttack = function() {
-    damageCalc()    
-    
-    playerTurn = false;
-}
-
-// Make a damage calculator that has all damage related stuff in it
+// Make a damage calculator that deals with all damage related stuff in it
 function damageCalc(character){
     // miss rate
     let miss = Math.floor((Math.random() * 6) + 1);
