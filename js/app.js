@@ -4,15 +4,15 @@
         weakness: ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'],
         playerTurn: true    
 }
-// PLAYER MOVE LOGIC: determine the players turn by checking if boolean equals true and then letting them attack
+// PLAYER MOVE LOGIC: determine the player's turn by checking if boolean equals true and then letting them attack
 const playerName = prompt(`What's your name?`);   
 const playerAttack = function () {
     // Not sure what to pass in as a param
     damageCalc()
-    playerTurn = false;
+    player.playerTurn = false;
 }
 
-///////ENEMY CLASSES//////
+//////ENEMY CLASSES//////
 class Enemy {
     constructor(name) {
         this.name = name
@@ -23,7 +23,7 @@ class Enemy {
         setTimeout(() => {
             damageCalc(player)
         }, 2000);
-        return playerTurn = true
+       player.playerTurn = true
     }
 }    
 
@@ -95,13 +95,13 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 // Make a damage calculator that deals with all damage related stuff in it
 function damageCalc(character){
     // miss rate
-    let miss = Math.floor((Math.random() * 6) + 1);
-    if( miss === 6) return 'You missed!'
+    let miss = Math.floor((Math.random() * 6));
+    if( miss === 6) return 'You missed! Try again'
     else {
-        // critical 
+        // This covers critical and base damage cases
         let critical = Math.floor((Math.random() * 10) + 1);
         critical >= 5 ? character.hp = character.hp - 25 : character.hp - 20
-        // superEffective 1.5 of base
+        // This covers superEffective case
         let superEffective = Math.floor((Math.random() * 10) + 1);
         superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
     }
