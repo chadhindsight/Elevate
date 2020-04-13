@@ -4,7 +4,7 @@ const playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket 
 
 // ENEMY CLASSES
 class Enemy {
-    constructor(name, hp, weakness) {
+    constructor(name) {
         this.name = name
         this.hp = 100;
         this.weakness = [];
@@ -16,8 +16,8 @@ class Enemy {
 
 // Angry class
 class Angry extends Enemy {
-    constructor(name, hp, weakness){
-        super(name, weakness)
+    constructor(name){
+        super(name)
         this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
 
     }
@@ -27,16 +27,16 @@ class Angry extends Enemy {
 }
 // Negative class
 class Negative extends Enemy {
-    constructor(name, hp, weakness){
-        super(name, weakness)
+    constructor(name){
+        super(name)
         this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
         
     }
 }
 //Bored class
 class Bored extends Enemy {
-    constructor(name, hp, weakness){
-        super(name, weakness)
+    constructor(name){
+        super(name)
         this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running' ]
     }
     attack() {
@@ -45,8 +45,8 @@ class Bored extends Enemy {
 }
 // Tough class
 class Tough extends Enemy {
-    constructor(name, hp, weakness){
-        super(name, weakness)
+    constructor(name){
+        super(name)
         this.hp = 200
     }
 }
@@ -63,6 +63,7 @@ let boringBob = new Bored ('Boring Bob')
 const broodingBrody = new Bored('Brooding Brody')
 
 const tigerKing = new Tough('Tiger King')
+
 console.log(angryAngie.name, angryAngie.hp)
 console.log(crazyCarl.name)
 console.log(negativeNancy.name)
@@ -80,17 +81,25 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 
 // PLAYER MOVE LOGIC: determine the players turn by checking if boolean equals true and then letting them attack
 // playerTurn = true;
-// Regular damage = 20
+function playerAttack() {
+    
+    
+    playerTurn = false;
+}
 // Make a damage calculator that has all damage related stuff 
 function damageCalc(){
-    // critical 2.0 of base
-    let critical = Math.floor((Math.random() * 10) + 1); 
-    critical == 1 ? playerHp = playerHp - 25 : playerHp - 20 
-    // superEffective 1.5 of base
-    let superEffective = Math.floor((Math.random() * 10) + 1); 
-    superEffective == 1 ? playerHp - 30 : attack();
-    // base 20
-    attack()
-
+    // miss rate
+    let miss = Math.floor((Math.random() * 6) + 1);
+    if( miss === 6) return 'You missed!'
+    else {
+        // critical 2.0 of base
+        let critical = Math.floor((Math.random() * 10) + 1);
+        critical == 1 ? playerHp = playerHp - 25 : playerHp - 20
+        // superEffective 1.5 of base
+        let superEffective = Math.floor((Math.random() * 10) + 1);
+        superEffective == 1 ? playerHp - 30 : attack();
+        // base 20
+        attack()
+    }
     playerTurn = false;
 }
