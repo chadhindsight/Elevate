@@ -1,6 +1,6 @@
 let playerTurn = true;
 let playerHp = 100;
-playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme']
+const playerWeakness = ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'];
 
 // ENEMY CLASSES
 class Enemy {
@@ -9,8 +9,8 @@ class Enemy {
         this.hp = 100;
         this.weakness = [];
     }
-    attack() {
-
+    attack(playerHp) {
+        return playerHp -= 20
     }
 }    
 
@@ -84,6 +84,13 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 // Make a damage calculator that has all damage related stuff 
 function damageCalc(){
     // critical 2.0 of base
-    // base 20
+    let critical = Math.floor((Math.random() * 10) + 1); 
+    critical == 1 ? playerHp = playerHp - 25 : playerHp - 20 
     // superEffective 1.5 of base
+    let superEffective = Math.floor((Math.random() * 10) + 1); 
+    superEffective == 1 ? playerHp - 30 : attack();
+    // base 20
+    attack()
+
+    playerTurn = false;
 }
