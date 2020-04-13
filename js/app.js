@@ -80,26 +80,26 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 // let superEffective = Math.floor((Math.random() * 10) + 1);
 
 // PLAYER MOVE LOGIC: determine the players turn by checking if boolean equals true and then letting them attack
-// playerTurn = true;
-function playerAttack() {
-    
+const playerAttack = function() {
+    damageCalc()    
     
     playerTurn = false;
 }
-// Make a damage calculator that has all damage related stuff 
-function damageCalc(){
+
+// Make a damage calculator that has all damage related stuff in it
+function damageCalc(character){
     // miss rate
     let miss = Math.floor((Math.random() * 6) + 1);
     if( miss === 6) return 'You missed!'
     else {
-        // critical 2.0 of base
+        // critical 
         let critical = Math.floor((Math.random() * 10) + 1);
-        critical == 1 ? playerHp = playerHp - 25 : playerHp - 20
+        critical == 1 || critical== 5 ? character.hp = character.hp - 25 : character.hp - 20
         // superEffective 1.5 of base
         let superEffective = Math.floor((Math.random() * 10) + 1);
-        superEffective == 1 ? playerHp - 30 : attack();
+        superEffective >= 5 ? character.hp - 30 : attack();
         // base 20
         attack()
     }
-    playerTurn = false;
+    // playerTurn = false;
 }
