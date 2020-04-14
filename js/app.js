@@ -4,83 +4,69 @@
         weakness: ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'],
         playerTurn: true    
 }
-// PLAYER MOVE LOGIC: determine the player's turn by checking if boolean equals true and then letting them attack
-const playerName = prompt(`What's your name?`);   
+// PLAYER'S MOVE LOGIC: determine the player's turn by checking a boolean value
 const playerAttack = function () {
     // Not sure what to pass in as a param
-    damageCalc()
     player.playerTurn = false;
 }
 //////ENEMY CLASSES//////
 class Enemy {
-    constructor(name) {
+    constructor(name, player) {
         this.name = name
         this.hp = 100;
-        this.weakness = [];
+
+        switch (this.name) {
+            case "Angry Angie": 
+                this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
+            break;
+            case "Crazy Carl":
+                this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
+                break;
+            case "Negative Nancy":
+                this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
+            break;
+            case "Komplainin Karen":
+                this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
+            break;
+            case "Boring Bob":
+                this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running']
+            break;   
+            case "'Brooding Brody'":
+                this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running']
+            break;    
+            case "Tiger King":
+                this.weakness = ['Carol Baskin', 'Corona Virus Cardi']
+                this.hp = 200 
+            break; 
+            default:
+                return 'Not a valid string value option!'
+                this.weakness = [];            
+        }
     }
-    enemyAttack() {
+    // Outside the constructor
+    attack() {
         setTimeout(() => {
-            damageCalc(player)
-        }, 2000);
-       player.playerTurn = true
+        
+     }, 2000);
     }
 }    
 
-// Angry class
-class Angry extends Enemy {
-    constructor(name){
-        super(name)
-        this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
-
-    }
-    attack() {
-
-    }
-}
-// Negative class
-class Negative extends Enemy {
-    constructor(name){
-        super(name)
-        this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
-        
-    }
-}
-//Bored class
-class Bored extends Enemy {
-    constructor(name){
-        super(name)
-        this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running' ]
-    }
-    attack() {
-        
-    }
-}
-// Tough class
-class Tough extends Enemy {
-    constructor(name){
-        super(name)
-        this.hp = 200
-    }
-}
 
 
 /////////////ENEMY CHARACTERS/////////////
-const angryAngie = new Angry('Angry Angie')
-const crazyCarl = new Angry('Crazy Carl')
+// const angryAngie = new Angry('Angry Angie')
+// const crazyCarl = new Angry('Crazy Carl')
 
-const negativeNancy = new Negative('Negative Nancy')
-const komplainingKaren = new Negative('Komplainin Karen')
+// const negativeNancy = new Negative('Negative Nancy')
+// const komplainingKaren = new Negative('Komplainin Karen')
 
-let boringBob = new Bored ('Boring Bob')
-const broodingBrody = new Bored('Brooding Brody')
+// let boringBob = new Bored ('Boring Bob')
+// const broodingBrody = new Bored('Brooding Brody')
 
-const tigerKing = new Tough('Tiger King')
-console.log(playerName)
-console.log(angryAngie.name, angryAngie.hp)
-console.log(crazyCarl.name)
-console.log(negativeNancy.name)
-console.log(komplainingKaren.name)
-console.log(broodingBrody.name, broodingBrody.weakness)
+// const tigerKing = new Tough('Tiger King')
+const angryAngie = new Enemy('Angry Angie')
+console.log(angryAngie.name, angryAngie.attack())
+
 
 ///////NOTES///////
 
@@ -93,13 +79,13 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 function damageCalc(character){
     // miss rate
     let miss = Math.floor((Math.random() * 6));
-    if( miss === 6) return 'You missed! Try again'
+    if( miss === 5) return 'You missed! Try again'
     else {
         // This covers critical and base damage cases
         let critical = Math.floor((Math.random() * 10) + 1);
-        critical >= 5 ? character.hp = character.hp - 25 : character.hp - 20
+        return critical >= 5 ? character.hp -= 25 : character.hp - 20
         // This covers superEffective case
         let superEffective = Math.floor((Math.random() * 10) + 1);
-        superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
+        return superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
     }
 }
