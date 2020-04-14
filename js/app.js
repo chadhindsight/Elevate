@@ -11,7 +11,6 @@ const playerAttack = function () {
     damageCalc()
     player.playerTurn = false;
 }
-
 //////ENEMY CLASSES//////
 class Enemy {
     constructor(name) {
