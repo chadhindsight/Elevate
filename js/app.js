@@ -90,8 +90,6 @@ console.log(broodingBrody.name, broodingBrody.weakness)
 // let critical = Math.floor((Math.random() * 10) + 1);
 // critical === 1 ? hp -= damage * 1.5 : hp
 
-// let superEffective = Math.floor((Math.random() * 10) + 1);
-
 // Make a damage calculator that deals with all damage related stuff in it
 function damageCalc(character){
     // miss rate
@@ -105,5 +103,4 @@ function damageCalc(character){
         let superEffective = Math.floor((Math.random() * 10) + 1);
         superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
     }
-    // playerTurn = false;
 }
