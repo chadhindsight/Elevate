@@ -14,7 +14,9 @@ class Enemy {
     constructor(name, player) {
         this.name = name
         this.hp = 100;
-
+        this.attack = function(cb) {
+            return cb;
+        }
         switch (this.name) {
             case "Angry Angie": 
                 this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
@@ -40,14 +42,11 @@ class Enemy {
             break; 
             default:
                 return 'Not a valid string value option!'
-                this.weakness = [];            
         }
     }
     // Outside the constructor
-    attack() {
-        setTimeout(() => {
-        
-     }, 2000);
+    attack(player) {
+       
     }
 }    
 
@@ -65,7 +64,7 @@ class Enemy {
 
 // const tigerKing = new Tough('Tiger King')
 const angryAngie = new Enemy('Angry Angie')
-console.log(angryAngie.name, angryAngie.attack())
+console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
 
 
 ///////NOTES///////
@@ -81,11 +80,10 @@ function damageCalc(character){
     let miss = Math.floor((Math.random() * 6));
     if( miss === 5) return 'You missed! Try again'
     else {
-        // This covers critical and base damage cases
+        // This covers critical, super effective, & base damage cases
         let critical = Math.floor((Math.random() * 10) + 1);
-        return critical >= 5 ? character.hp -= 25 : character.hp - 20
-        // This covers superEffective case
         let superEffective = Math.floor((Math.random() * 10) + 1);
-        return superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
+
+        return critical >= 8 ? character.hp -= 25 : superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
     }
 }
