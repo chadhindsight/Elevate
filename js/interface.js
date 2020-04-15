@@ -34,11 +34,11 @@ backButton.onclick = () => {
 // }
 
 // Angry Negative Bored Tough
-const enemyArray = [['Angry Angie', 'Crazy Carl'], ['Negative Nancy', 'Komplainin Karen'], ['Boring Bob', 'Brooding Brody'], ['Tiger King']]
+const enemyArray = [['Angry Angie', 'Crazy Carl'], ['Negative Nancy', 'Komplainin Karen'], ['Boring Bob', 'Brooding Brody'], ['Tiger King','Tiger King']]
 
 let randomChar = () => {
-    let firstArr = Math.floor(Math.random() * enemyArray.length - 1 );
-    
+    let firstArr = Math.floor(Math.random() * (enemyArray.length - 1));
+    console.log(enemyArray, enemyArray[firstArr], firstArr)
     return new Enemy(enemyArray[firstArr][~~(Math.random() * enemyArray[firstArr].length)]);
 }
 // function buttons
@@ -56,10 +56,10 @@ const buttonsEventListeners = () => {
                 myButton.setAttribute('id', `button-${+i + 1}`);
                 myButton.innerHTML = b;
                 myButton.onclick = () => {
-                    message = player.playerAttack(angryAngie)
+                    message = player.playerAttack(randomChar())
                     document.querySelector('.message').innerHTML = `${message}`
                     console.log('sdfdsfdfsass', message)
-                    enemyAttack(angryAngie, button);
+                    enemyAttack(randomChar(), button);
                 }
                 actions.append(myButton);
             })

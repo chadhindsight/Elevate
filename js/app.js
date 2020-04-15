@@ -51,7 +51,7 @@ class Enemy {
 function enemyAttack(enemy, buttonChoice) {
     buttonChoice.setAttribute("disabled", 'true')
     setTimeout(() => {
-        enemy.attack(()=>console.log('attack'))(angryAngie.attack)
+        enemy.attack(()=>console.log('attack'))(enemy)
        buttonChoice.removeAttribute("disabled")
     }, 2000);
     // playerTurn !=playerTurn

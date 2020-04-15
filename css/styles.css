@@ -1,6 +1,6 @@
 body {
   background: url('../chars/Angry-angie/star.jpg') ;
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   position: relative;
   height: 75vh;
@@ -9,7 +9,31 @@ body {
 #angie {
   position: absolute;
   bottom: 39%;
-  right: 50%;
+  right: 26%;
+  top: 22%;
+  width: 18%;
+}
+#char{
+  position: absolute;
+  right: 75%;
+  top: 12%;
+  width: 40%;
+}
+
+#angie.shake {
+  animation: angie-min 2s;
+
+}
+@keyframes angie-min{
+  25%{
+    transform: rotate(30deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-30deg);
+  }
 }
 
 .box {
@@ -21,9 +45,12 @@ body {
   color: #fff;
   height: 120px;
   width: 784px;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  left: 20px;
+  /* left: 0; */
+  right: 0;
+  margin: auto;
+  display: block;
 }
 /* GAME MESSAGE */
 .box .message {
