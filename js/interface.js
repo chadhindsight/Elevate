@@ -13,8 +13,8 @@ let button0 = ['Carol', 'Corona', ''];
 let button1 = ['Wiggle', 'Anime Power', 'Yeah'];
 let button2 = ['MJ', 'Bad Day', 'Just Do It'];
 let button3 = ['Superstar','Dance', 'Running'];
-
-let allOptions = [button0, button1, button2, button3, button4]
+// let button4 = []
+let allOptions = [button0, button1, button2, button3]
 let actions = document.querySelector('.actions');
 
 let backButton = document.createElement('button');
