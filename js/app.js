@@ -21,11 +21,11 @@ class Enemy {
         switch (this.name) {
             case "Angry Angie": 
                 this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
-                this.hp = 140
             break;
             case "Crazy Carl":
                 this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
-                break;
+                this.hp = 140
+            break;
             case "Negative Nancy":
                 this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
             break;
@@ -49,14 +49,38 @@ class Enemy {
 }    
 
 function enemyAttack(enemy) {
-    document.querySelector('#other').setAttribute("disabled", 'true')
+    document.querySelector('#button-1').setAttribute("disabled", 'true')
     setTimeout(() => {
         enemy.attack(()=>console.log('attack'))(angryAngie.attack)
-        document.querySelector('#other').removeAttribute("disabled")
+        document.querySelector('#button-1').removeAttribute("disabled")
     }, 2000);
     // playerTurn !=playerTurn
 }
 
+function enemyAttack2(enemy) {
+    document.querySelector('#button-2').setAttribute("disabled", 'true')
+    setTimeout(() => {
+        enemy.attack(() => console.log('attack'))(angryAngie.attack)
+        document.querySelector('#button-2').removeAttribute("disabled")
+    }, 2000);
+    // playerTurn !=playerTurn
+}
+
+function enemyAttack3(enemy) {
+    document.querySelector('#button-3').setAttribute("disabled", 'true')
+    setTimeout(() => {
+        enemy.attack(() => console.log('attack'))(angryAngie.attack)
+        document.querySelector('#button-3').removeAttribute("disabled")
+    }, 2000);
+}
+
+function enemyAttack4(enemy) {
+    document.querySelector('#button-4').setAttribute("disabled", 'true')
+    setTimeout(() => {
+        enemy.attack(() => console.log('attack'))(angryAngie.attack)
+        document.querySelector('#button-4').removeAttribute("disabled")
+    }, 2000);
+}
 /////////////ENEMY CHARACTERS/////////////
 // const angryAngie = new Angry('Angry Angie')
 // const crazyCarl = new Angry('Crazy Carl')
