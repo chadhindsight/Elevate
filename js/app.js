@@ -136,3 +136,6 @@ function damageCalc(character){
     }
 }
 // Maybe put them back
+document.querySelector("#game button").onclick = function(){
+    document.querySelector("#game").className=""
+}
