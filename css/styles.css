@@ -1,3 +1,16 @@
+body {
+  background: url('../chars/Angry-angie/star.jpg') ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+#angie {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
 .box {
   padding: 8px;
   background: #333;
@@ -7,6 +20,9 @@
   color: #fff;
   height: 120px;
   width: 784px;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
 }
 /* GAME MESSAGE */
 .box .message {

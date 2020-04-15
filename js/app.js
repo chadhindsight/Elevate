@@ -48,39 +48,15 @@ class Enemy {
     }
 }    
 
-function enemyAttack(enemy) {
-    document.querySelector('#button-1').setAttribute("disabled", 'true')
+function enemyAttack(enemy, buttonChoice) {
+    buttonChoice.setAttribute("disabled", 'true')
     setTimeout(() => {
         enemy.attack(()=>console.log('attack'))(angryAngie.attack)
-        document.querySelector('#button-1').removeAttribute("disabled")
+       buttonChoice.removeAttribute("disabled")
     }, 2000);
     // playerTurn !=playerTurn
 }
 
-function enemyAttack2(enemy) {
-    document.querySelector('#button-2').setAttribute("disabled", 'true')
-    setTimeout(() => {
-        enemy.attack(() => console.log('attack'))(angryAngie.attack)
-        document.querySelector('#button-2').removeAttribute("disabled")
-    }, 2000);
-    // playerTurn !=playerTurn
-}
-
-function enemyAttack3(enemy) {
-    document.querySelector('#button-3').setAttribute("disabled", 'true')
-    setTimeout(() => {
-        enemy.attack(() => console.log('attack'))(angryAngie.attack)
-        document.querySelector('#button-3').removeAttribute("disabled")
-    }, 2000);
-}
-
-function enemyAttack4(enemy) {
-    document.querySelector('#button-4').setAttribute("disabled", 'true')
-    setTimeout(() => {
-        enemy.attack(() => console.log('attack'))(angryAngie.attack)
-        document.querySelector('#button-4').removeAttribute("disabled")
-    }, 2000);
-}
 /////////////ENEMY CHARACTERS/////////////
 // const angryAngie = new Angry('Angry Angie')
 // const crazyCarl = new Angry('Crazy Carl')
