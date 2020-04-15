@@ -1,14 +1,15 @@
 body {
   background: url('../chars/Angry-angie/star.jpg') ;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   position: relative;
+  height: 75vh;
 }
 
 #angie {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: 39%;
+  right: 50%;
 }
 
 .box {
@@ -38,6 +39,22 @@ body {
   float: left;
   width: 25%;
   height: 100%;
+}
+#game.show{
+  background: pink;
+  width: 100vw;
+  height:100vh;
+  position: fixed;
+  top: 0;
+  z-index:10 ;
+  
+}
+#game{
+  transition: all 1s;
+  overflow: hidden;
+  height: 0;
+  width: 0;
+  
 }
 /* .box .continue  button {
   position: relative;

@@ -9,14 +9,12 @@
 //     console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
 
 // }, 2000);
-let button0 = ['1', '2', {
-    name: 'option',
-    vid: 'mov'
-}];
-let button1 = [{name: 'Tough'}, {name:'Angry'},{name:'Negative'}];
-let button2 = [{}, {}, {}];
-let button3 = [{}, {},{}];
-let allOptions = [button0, button1, button2, button3]
+let button0 = ['Carol', 'Corona', ''];
+let button1 = ['Wiggle', 'Anime Power', 'Yeah'];
+let button2 = ['MJ', 'Bad Day', 'Just Do It'];
+let button3 = ['Superstar','Dance', 'Running'];
+
+let allOptions = [button0, button1, button2, button3, button4]
 let actions = document.querySelector('.actions');
 
 let backButton = document.createElement('button');
@@ -26,7 +24,7 @@ backButton.onclick = () => {
         <button id="button-1">Tough </button>
         <button id="button-2">Angry</button>
         <button id="button-3">Negative</button>
-        <button id="button-4">Back</button>
+        <button id="button-4">Bored</button>
     `
 
     buttonsEventListeners()
