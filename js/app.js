@@ -2,13 +2,14 @@
  const player = {
         hp: 105,
         weakness: ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'],
-        playerTurn: true    
+        playerTurn: true,
+        playerAttack: function (badGuy) {
+            this.playerTurn = false;   
+         return damageCalc(badGuy)
+     }   
 }
 // PLAYER'S MOVE LOGIC: determine the player's turn by checking a boolean value
-const playerAttack = function () {
-    // Not sure what to pass in as a param
-    player.playerTurn = false;
-}
+
 //////ENEMY CLASSES//////
 class Enemy {
     constructor(name, player) {
@@ -20,6 +21,7 @@ class Enemy {
         switch (this.name) {
             case "Angry Angie": 
                 this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
+                this.hp = 140
             break;
             case "Crazy Carl":
                 this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
@@ -44,13 +46,16 @@ class Enemy {
                 return 'Not a valid string value option!'
         }
     }
-    // Outside the constructor
-    attack(player) {
-       
-    }
 }    
 
-
+function enemyAttack(enemy) {
+    document.querySelector('#other').setAttribute("disabled", 'true')
+    setTimeout(() => {
+        enemy.attack(()=>console.log('attack'))(angryAngie.attack)
+        document.querySelector('#other').removeAttribute("disabled")
+    }, 2000);
+    // playerTurn !=playerTurn
+}
 
 /////////////ENEMY CHARACTERS/////////////
 // const angryAngie = new Angry('Angry Angie')
@@ -64,8 +69,12 @@ class Enemy {
 
 // const tigerKing = new Tough('Tiger King')
 const angryAngie = new Enemy('Angry Angie')
-console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
 
+// // Just a test
+// setTimeout(() => {
+//     console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
+ 
+// }, 2000);
 
 ///////NOTES///////
 
@@ -75,15 +84,31 @@ console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
 // critical === 1 ? hp -= damage * 1.5 : hp
 
 // Make a damage calculator that deals with all damage related stuff in it
-function damageCalc(character){
-    // miss rate
-    let miss = Math.floor((Math.random() * 6));
-    if( miss === 5) return 'You missed! Try again'
-    else {
-        // This covers critical, super effective, & base damage cases
-        let critical = Math.floor((Math.random() * 10) + 1);
-        let superEffective = Math.floor((Math.random() * 10) + 1);
+let message;
+let critical = Math.ceil((Math.random() * 10));
+let superEffective = Math.ceil((Math.random() * 10));
+let miss = Math.floor((Math.random() * 6));
 
-        return critical >= 8 ? character.hp -= 25 : superEffective === 1 || superEffective === 5 ? character.hp - 30 : character.hp;
+function damageCalc(character){
+    critical = Math.ceil((Math.random() * 10));
+    superEffective = Math.ceil((Math.random() * 10));
+    miss = Math.floor((Math.random() * 6));
+    // miss rate
+    // let miss = Math.floor((Math.random() * 6));
+    if( miss === 5) return message = 'You missed! Try again'
+        // This covers critical, super effective, & base damage cases
+        // MESSAGES THAT WILL GET DISPLAYED
+    else if (critical >= 8) {
+        character.hp -= 25
+        return message = 'Critical hit'
+    }
+    else if (superEffective === 1 || superEffective === 5 ) {
+        character.hp -= 30
+        return message = `It's super effective!`
+    }
+    else {
+        character.hp - 20
+        return message = 'You did 20 damage'
     }
 }
+// Maybe put them back
