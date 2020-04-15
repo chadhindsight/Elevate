@@ -3,12 +3,12 @@
         hp: 105,
         weakness: ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'],
         playerTurn: true,
+    // PLAYER'S MOVE LOGIC: determine the player's turn by checking a boolean value
         playerAttack: function (badGuy) {
             this.playerTurn = false;   
          return damageCalc(badGuy)
      }   
 }
-// PLAYER'S MOVE LOGIC: determine the player's turn by checking a boolean value
 
 //////ENEMY CLASSES//////
 class Enemy {
@@ -68,7 +68,6 @@ function enemyAttack(enemy, buttonChoice) {
 // const broodingBrody = new Bored('Brooding Brody')
 
 // const tigerKing = new Tough('Tiger King')
-const angryAngie = new Enemy('Angry Angie')
 
 // // Just a test
 // setTimeout(() => {
