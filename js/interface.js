@@ -68,7 +68,7 @@ function buttonsEventListeners () {
                 let myButton = document.createElement('button');
                 myButton.setAttribute('id', `button-${+i + 1}`);
                 myButton.innerHTML = b;
-                myButton.onclick = () => onClickHandler(button);
+                myButton.onclick = () => onClickHandler(myButton);
                 actions.append(myButton);
             })
             actions.appendChild(backButton)
@@ -88,7 +88,7 @@ function onClickHandler (button) {
     let enemyAttackMessage = setTimeout(() => {
         battleMessage.innerText = 'The enemy attacks you!'
         document.querySelector('.enemy').classList.add('attack')
-    }, 2000);
+    }, 3000);
     setTimeout(() => {
         document.querySelector('#char').classList.add('char-hit')
         document.querySelector('.enemy').classList.remove('attack')
@@ -99,12 +99,17 @@ function onClickHandler (button) {
     // THE PLAYER'S TURN
     setTimeout(() => {
         document.querySelector('#char').classList.remove('char-hit')
-        document.querySelector('.enemy').classList.add('char-hit')
         battleMessage.innerText = `Choose an attack`
     }, 6000);
-    setTimeout(() => {
-        document.querySelector('.enemy').classList.remove('char-hit')
-    }, 6500);
+    
+    // setTimeout(() => {
+    //     document.querySelector('.enemy').classList.add('char-hit')
+    // }, 6500);
+
+    // setTimeout(() => {
+    //     document.querySelector('.enemy').classList.remove('char-hit')
+    // }, 7000);
+    console.log(button)
     enemyAttack(randomChar(), button);
 }
 
