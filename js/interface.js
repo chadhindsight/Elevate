@@ -83,4 +83,8 @@ const buttonsEventListeners = () => {
     })
 
 }
+// function gameStart() {
+//     document.querySelector("#start").addEventListener {
+//     }
+// }
 buttonsEventListeners()
