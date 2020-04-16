@@ -62,18 +62,22 @@ const buttonsEventListeners = () => {
                     playerMessage = player.playerAttack(randomChar())
                    
                     // Input messages
-                    battleMessage.innerHTML = `${playerMessage}`
+                    battleMessage.innerText = `${playerMessage}`
                     // THE ENEMY'S TURN
                    let enemyAttackMessage = setTimeout(() => {
-                        battleMessage.innerHTML = 'The enemy attacks!'
-                        document.querySelector('#char').classList.add('char-hit')
+                        battleMessage.innerText = 'The enemy attacks!'
+                       document.querySelector('.enemy').classList.add('attack')
                     }, 2000);
                    
                     setTimeout(() => {
+                        document.querySelector('#char').classList.add('char-hit')
+                        document.querySelector('.enemy').classList.remove('attack')
+                    }, 4000);
+                    // THE PLAYER'S TURN
+                    setTimeout(() => {
                         document.querySelector('#char').classList.remove('char-hit')
-                        battleMessage = ``
-                    }, 3000);
-                    // clearTimeout(enemyAttackMessage)
+                        battleMessage.innerText = `Choose an attack`
+                    }, 6000);
                     enemyAttack(randomChar(), button);
                 }
                 actions.append(myButton);
@@ -83,6 +87,8 @@ const buttonsEventListeners = () => {
     })
 
 }
+
+
 // function gameStart() {
 //     document.querySelector("#start").addEventListener {
 //     }
