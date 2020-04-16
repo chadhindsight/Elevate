@@ -1,10 +1,10 @@
-// Event listeners go here!
-// let jams = document.getElementById("myAudio")
-// jams.play();
+// Event listeners go in this file!
+let jams = document.getElementById("myAudio")
+jams.play();
 
 
 
-// Just a test
+// This is just a test to see if the right damage value logs to the console
 // setTimeout(() => {
 //     console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
 
@@ -49,6 +49,9 @@ const buttonsEventListeners = () => {
        
         // Meme buttons
         button.addEventListener('click', function () {
+            // Reference to the text that gets displayed in the box at the bottom
+            let battleMessage = document.querySelector('.message');
+
             actions.innerHTML = '';
             allOptions[i].forEach((b, i) => {
                 console.log(b)
@@ -57,17 +60,20 @@ const buttonsEventListeners = () => {
                 myButton.innerHTML = b;
                 myButton.onclick = () => {
                     playerMessage = player.playerAttack(randomChar())
+                   
                     // Input messages
-                    document.querySelector('.message').innerHTML = `${playerMessage}`
+                    battleMessage.innerHTML = `${playerMessage}`
                     // THE ENEMY'S TURN
-                    setTimeout(() => {
-                        document.querySelector('.message').innerHTML = 'The enemy attacks!'
+                   let enemyAttackMessage = setTimeout(() => {
+                        battleMessage.innerHTML = 'The enemy attacks!'
                         document.querySelector('#char').classList.add('char-hit')
                     }, 2000);
+                   
                     setTimeout(() => {
                         document.querySelector('#char').classList.remove('char-hit')
+                        battleMessage = ``
                     }, 3000);
-                    console.log(message)
+                    // clearTimeout(enemyAttackMessage)
                     enemyAttack(randomChar(), button);
                 }
                 actions.append(myButton);
