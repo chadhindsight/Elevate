@@ -35,7 +35,7 @@ class Enemy {
             case "Boring Bob":
                 this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running']
             break;   
-            case "'Brooding Brody'":
+            case "Brooding Brody":
                 this.weakness = ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running']
             break;    
             case "Tiger King":
@@ -57,24 +57,6 @@ function enemyAttack(enemy, buttonChoice) {
     // playerTurn !=playerTurn
 }
 
-/////////////ENEMY CHARACTERS/////////////
-// const angryAngie = new Angry('Angry Angie')
-// const crazyCarl = new Angry('Crazy Carl')
-
-// const negativeNancy = new Negative('Negative Nancy')
-// const komplainingKaren = new Negative('Komplainin Karen')
-
-// let boringBob = new Bored ('Boring Bob')
-// const broodingBrody = new Bored('Brooding Brody')
-
-// const tigerKing = new Tough('Tiger King')
-
-// // Just a test
-// setTimeout(() => {
-//     console.log(angryAngie.name, angryAngie.attack(damageCalc(player)))
- 
-// }, 2000);
-
 ///////NOTES///////
 
 // Maybe make a function to calculate critical hits and pass that function to any functions that deals with attacks
@@ -94,7 +76,7 @@ function damageCalc(character){
     miss = Math.floor((Math.random() * 6));
     // miss rate
     // let miss = Math.floor((Math.random() * 6));
-    if( miss === 5) return message = 'You missed! Try again'
+    if( miss === 5) return message = 'Attack missed!'
         // This covers critical, super effective, & base damage cases
         // MESSAGES THAT WILL GET DISPLAYED
     else if (critical >= 8) {
@@ -107,7 +89,7 @@ function damageCalc(character){
     }
     else {
         character.hp - 20
-        return message = 'You did 20 damage'
+        return message = 'Opponent lost 20 health'
     }
 }
 // Maybe put them back
