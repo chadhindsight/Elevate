@@ -60,12 +60,18 @@ const buttonsEventListeners = () => {
                 myButton.innerHTML = b;
                 myButton.onclick = () => {
                     playerMessage = player.playerAttack(randomChar())
-                   
+                    //PLAYER'S TURN
+                    setTimeout(() => {
+                        document.querySelector('#enemy').classList.add('char-hit')
+                    }, 1000);  
+                    setTimeout(() => {
+                        document.querySelector('#enemy').classList.remove('char-hit')
+                    }, 1500);  
                     // Input messages
                     battleMessage.innerText = `${playerMessage}`
                     // THE ENEMY'S TURN
                    let enemyAttackMessage = setTimeout(() => {
-                        battleMessage.innerText = 'The enemy attacks!'
+                        battleMessage.innerText = 'The enemy attacks you!'
                        document.querySelector('.enemy').classList.add('attack')
                     }, 2000);
                    
@@ -88,9 +94,12 @@ const buttonsEventListeners = () => {
 
 }
 
-
 // function gameStart() {
 //     document.querySelector("#start").addEventListener {
 //     }
 // }
 buttonsEventListeners()
+
+
+// PASS AS SECOND PARAM TO SETTIMEOUT
+// document.getElementById("myVideo").duration
