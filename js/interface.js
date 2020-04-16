@@ -59,10 +59,14 @@ const buttonsEventListeners = () => {
                     playerMessage = player.playerAttack(randomChar())
                     // Input messages
                     document.querySelector('.message').innerHTML = `${playerMessage}`
+                    // THE ENEMY'S TURN
                     setTimeout(() => {
                         document.querySelector('.message').innerHTML = 'The enemy attacks!'
+                        document.querySelector('#char').classList.add('char-hit')
                     }, 2000);
-
+                    setTimeout(() => {
+                        document.querySelector('#char').classList.remove('char-hit')
+                    }, 3000);
                     console.log(message)
                     enemyAttack(randomChar(), button);
                 }
