@@ -5,6 +5,13 @@
         playerTurn: true,
     // PLAYER'S MOVE LOGIC: determine the player's turn by checking a boolean value
         playerAttack: function (badGuy) {
+            setTimeout(() => {
+                document.querySelector('.enemy').classList.add('char-hit')
+            }, 1000);
+
+            setTimeout(() => {
+                document.querySelector('.enemy').classList.remove('char-hit')
+            }, 1500);
             this.playerTurn = false;   
          return damageCalc(badGuy)
      }   
@@ -50,10 +57,12 @@ class Enemy {
 
 function enemyAttack(enemy, buttonChoice) {
     buttonChoice.setAttribute("disabled", 'true')
+    console.log(buttonChoice)
     setTimeout(() => {
         enemy.attack(()=>console.log('attack'))(enemy)
        buttonChoice.removeAttribute("disabled")
     }, 2000);
+    
     // playerTurn !=playerTurn
 }
 
@@ -92,7 +101,7 @@ function damageCalc(character){
         return message = 'Opponent lost 20 health'
     }
 }
-// Maybe put them back
+// Maybe put them back here
 // document.querySelector("#game button").onclick = function(){
 //     document.querySelector("#game").className=""
 // }
