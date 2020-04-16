@@ -33,7 +33,6 @@ backButton.onclick = () => {
 //     enemyAttack(angryAngie, button);
 // }
 
-// Angry Negative Bored Tough
 
 let randomChar = () => {
     if(enemyArray.length = 1) {
