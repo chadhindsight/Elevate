@@ -56,9 +56,14 @@ const buttonsEventListeners = () => {
                 myButton.setAttribute('id', `button-${+i + 1}`);
                 myButton.innerHTML = b;
                 myButton.onclick = () => {
-                    message = player.playerAttack(randomChar())
-                    document.querySelector('.message').innerHTML = `${message}`
-                    console.log('sdfdsfdfsass', message)
+                    playerMessage = player.playerAttack(randomChar())
+                    // Input messages
+                    document.querySelector('.message').innerHTML = `${playerMessage}`
+                    setTimeout(() => {
+                        document.querySelector('.message').innerHTML = 'The enemy attacks!'
+                    }, 2000);
+
+                    console.log(message)
                     enemyAttack(randomChar(), button);
                 }
                 actions.append(myButton);
