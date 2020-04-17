@@ -33,19 +33,6 @@ backButton.onclick = () => {
 //     enemyAttack(angryAngie, button);
 // }
 
-// let randomChar = () => {
-//     if(enemyArray.length = 1) {
-//         // if array has only one char remaining return it and this is Tiger King
-//         return new Enemy(enemyArray[0][0])
-//     }
-//     let firstArr = Math.floor(Math.random() * (enemyArray.length - 1));
-//     console.log(enemyArray, enemyArray[firstArr], firstArr)
-//     let enemy = enemyArray[firstArr].splice(~~(Math.random() * enemyArray[firstArr].length), 1);
-//     if(enemyArray[firstArr].length === 0) enemyArray.splice(firstArr,1);
-
-//     return new Enemy(enemy);
-// }
-
 function loadEnemy() {
     // 1st call new randChar / health
     currentEnemy = randomChar()
@@ -57,7 +44,9 @@ function loadEnemy() {
     document.querySelector('body').style.background = currentEnemy.background;
     // change dom /img /heal;th bar / music / emotes
     // first time you load game calla loadEnemy
+    // Reset player character health
 }
+
 loadEnemy()
 // function buttons
 function buttonsEventListeners() {
@@ -90,8 +79,11 @@ function onClickHandler(button) {
     playerMessage = player.playerAttack()
     battleMessage.innerText = `${playerMessage}`
     document.querySelector('#enemyhp').setAttribute("value", currentEnemy.hp)
-    // Check if health is at zero
-    if (currentEnemy.hp <= 0) currentEnemy = randomChar()
+    // Check if health is at zero and reset player health to max
+    if (currentEnemy.hp <= 0) {
+        currentEnemy = randomChar()
+        player.hp = 100
+    }
     else {
         // THE ENEMY'S TURN
         setTimeout(() => {
