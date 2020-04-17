@@ -4,7 +4,7 @@ const enemyArray = [
         weakness: ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi'],
         video: ['../meme/Wiggle.mp4','../meme/power of anime.mp4','../meme/yeah.mp4'],
         sounds: 'sdfsdf',
-        img: './chars/Angry angie/angie.png',
+        img: '../chars/Angry angie/angie.png',
         background: '../chars/Angry angie/star.png',
         message: 'Angry Angie really needs her coffee',
         hp: 90
@@ -14,7 +14,7 @@ const enemyArray = [
         weakness: ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi'],
         video: ['../meme/Wiggle.mp4','../meme/power of anime.mp4','../meme/yeah.mp4'],
         sounds: 'sdfsdf',
-        img: '../chars/Crazy Carl/carl(2).png',
+        img: '../chars/Crazy Carl/carl.png',
         background: '../chars/Crazy Carl/park.jpg',
         message: 'Here comes Carl with the bs again!',
         hp: 100
