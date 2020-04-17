@@ -4,8 +4,8 @@ const enemyArray = [
         weakness: ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi'],
         video: ['../meme/Wiggle.mp4','../meme/power of anime.mp4','../meme/yeah.mp4'],
         sounds: 'sdfsdf',
-        img: '../chars/Angry angie/angie.png',
-        background: '../chars/Angry angie/star.png',
+        img: '../chars/Angry-angie/angie.png',
+        background: '../chars/Angry-angie/star.png',
         message: 'Angry Angie really needs her coffee',
         hp: 90
     }], 
