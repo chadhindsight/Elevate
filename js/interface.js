@@ -80,7 +80,6 @@ function onClickHandler (button) {
     let battleMessage = document.querySelector('.message');
     //PLAYER'S TURN
     playerMessage = player.playerAttack(randomChar())
-    // Input messages
     battleMessage.innerText = `${playerMessage}`
     // THE ENEMY'S TURN
     let enemyAttackMessage = setTimeout(() => {
@@ -101,10 +100,18 @@ function onClickHandler (button) {
         battleMessage.innerText = `Choose an attack`
     }, 6000);
     
+    // setTimeout(() => {
+    //     document.querySelector('.enemy').classList.add('char-hit')
+    // }, 6500);
+    // console.log(button)
+    // player.playerAttack(randomChar(), button)
+    // setTimeout(() => {
+    //     document.querySelector('.enemy').classList.remove('char-hit')
+    // }, 7000);
     console.log(button)
-    enemyAttack(randomChar(), button);
+    enemyAttack(player, button);
 }
-
+document.querySelector('progress').innerHTML = `$ {enemyarray[0]}`
 // function gameStart() {
 //     document.querySelector("#start").addEventListener {
 //     }
