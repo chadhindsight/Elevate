@@ -55,7 +55,7 @@ const enemyArray = [
     weakness: ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running'],
     video: ['../meme/superstar.mp4','../meme/dance.mp4','../meme/running.mp4'],
     sounds: 'sdfsdf',
-    img: '../chars/Brooding Brody/brody.png',
+    img: '../chars/Brooding brody/brody.png',
     background: '../chars/Brooding Brody/gym.jpg',
     message: '21 pilots is the perfect band!',
     hp: 100
