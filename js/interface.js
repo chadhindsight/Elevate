@@ -40,7 +40,7 @@ function loadEnemy() {
     // Since intialized it will have the full bar
     document.querySelector('#enemyhp').setAttribute("value", currentEnemy.hp)
     document.querySelector('#enemyhp').setAttribute("max", currentEnemy.hp)
-    document.getElementById('angie').setAttribute('src', currentEnemy.img);
+    document.getElementById('angie').setAttribute('src', currentEnemy.img.slice(3));
     document.querySelector('body').style.background = currentEnemy.background;
     // change dom /img /heal;th bar / music / emotes
     // first time you load game calla loadEnemy
