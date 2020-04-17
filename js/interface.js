@@ -33,7 +33,6 @@ backButton.onclick = () => {
 //     enemyAttack(angryAngie, button);
 // }
 
-
 let randomChar = () => {
     if(enemyArray.length = 1) {
         // if array has only one char remaining return it and this is Tiger King
@@ -92,6 +91,7 @@ function onClickHandler (button) {
         document.querySelector('#char').classList.add('char-hit')
         document.querySelector('.enemy').classList.remove('attack')
     }, 4000);
+    // Trigger the music playback elsewhere
     let jams = document.getElementById("myAudio")
     jams.volume = 0.2
     jams.play();
@@ -101,13 +101,6 @@ function onClickHandler (button) {
         battleMessage.innerText = `Choose an attack`
     }, 6000);
     
-    // setTimeout(() => {
-    //     document.querySelector('.enemy').classList.add('char-hit')
-    // }, 6500);
-
-    // setTimeout(() => {
-    //     document.querySelector('.enemy').classList.remove('char-hit')
-    // }, 7000);
     console.log(button)
     enemyAttack(randomChar(), button);
 }
