@@ -44,7 +44,7 @@ const enemyArray = [
     weakness: ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running'],
     video: ['../meme/superstar.mp4','../meme/dance.mp4','../meme/running.mp4'],
     sounds: 'sdfsdf',
-    img: '../chars/Boring Bob/bob.png',
+    img: '../chars/boring bob/bob.png',
     background: '../chars/Boring Bob/dmv.jpg',
     message: 'Placholder text, baby!',
     hp: 85
