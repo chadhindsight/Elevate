@@ -75,9 +75,13 @@ buttonsEventListeners()
 
 function onClickHandler(button) {
     let battleMessage = document.querySelector('.message');
+        // Sound effect
+        let attackSounds = new Audio('MediumExplosion8-Bit.mp3')
+        let damageSound = new Audio('Collision8-Bit.mp3')
     //PLAYER'S TURN
     playerMessage = player.playerAttack()
     battleMessage.innerText = `${playerMessage}`
+    attackSounds.play()
     document.querySelector('#enemyhp').setAttribute("value", currentEnemy.hp)
     // Check if health is at zero and reset player health to max
     if (currentEnemy.hp <= 0) {
@@ -91,10 +95,12 @@ function onClickHandler(button) {
             battleMessage.innerText = 'The enemy attacks you!'
             document.querySelector('.enemy').classList.add('attack')
             document.querySelector('#health').setAttribute("value", player.hp)
+            attackSounds.play()
         }, 3000);
         setTimeout(() => {
             document.querySelector('#char').classList.add('char-hit')
             document.querySelector('.enemy').classList.remove('attack')
+            damageSound.play()
         }, 4000);
     }
     // Trigger the music playback elsewhere
