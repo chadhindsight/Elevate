@@ -33,27 +33,31 @@ backButton.onclick = () => {
 //     enemyAttack(angryAngie, button);
 // }
 
-let randomChar = () => {
-    if(enemyArray.length = 1) {
-        // if array has only one char remaining return it and this is Tiger King
-        return new Enemy(enemyArray[0][0])
-    }
-    let firstArr = Math.floor(Math.random() * (enemyArray.length - 1));
-    console.log(enemyArray, enemyArray[firstArr], firstArr)
-    let enemy = enemyArray[firstArr].splice(~~(Math.random() * enemyArray[firstArr].length), 1);
-    if(enemyArray[firstArr].length === 0) enemyArray.splice(firstArr,1);
+// let randomChar = () => {
+//     if(enemyArray.length = 1) {
+//         // if array has only one char remaining return it and this is Tiger King
+//         return new Enemy(enemyArray[0][0])
+//     }
+//     let firstArr = Math.floor(Math.random() * (enemyArray.length - 1));
+//     console.log(enemyArray, enemyArray[firstArr], firstArr)
+//     let enemy = enemyArray[firstArr].splice(~~(Math.random() * enemyArray[firstArr].length), 1);
+//     if(enemyArray[firstArr].length === 0) enemyArray.splice(firstArr,1);
 
-    return new Enemy(enemy);
-}
+//     return new Enemy(enemy);
+// }
 
 function loadEnemy() {
     // 1st call new randChar / health
+    currentEnemy = randomChar()
+    // Since intialized it will have the full bar
+    document.querySelector('#enemyhp').setAttribute("value", currentEnemy.hp)
+    document.querySelector('#enemyhp').setAttribute("max", currentEnemy.hp)
     // change dom /img /heal;th bar / music / emotes
     // first time you load game calla loadEnemy
 }
-
+loadEnemy()
 // function buttons
-function buttonsEventListeners () {
+function buttonsEventListeners() {
     console.log('here')
     document.querySelectorAll('button').forEach((button, i) => {
         // Meme buttons
@@ -72,24 +76,32 @@ function buttonsEventListeners () {
             actions.appendChild(backButton)
         })
     })
-    
+
 }
-console.log('test test [][][]')
+// Call the buton event listener
 buttonsEventListeners()
-function onClickHandler (button) {
+
+function onClickHandler(button) {
     let battleMessage = document.querySelector('.message');
     //PLAYER'S TURN
-    playerMessage = player.playerAttack(randomChar())
+    playerMessage = player.playerAttack()
     battleMessage.innerText = `${playerMessage}`
-    // THE ENEMY'S TURN
-    let enemyAttackMessage = setTimeout(() => {
-        battleMessage.innerText = 'The enemy attacks you!'
-        document.querySelector('.enemy').classList.add('attack')
-    }, 3000);
-    setTimeout(() => {
-        document.querySelector('#char').classList.add('char-hit')
-        document.querySelector('.enemy').classList.remove('attack')
-    }, 4000);
+    document.querySelector('#enemyhp').setAttribute("value", currentEnemy.hp)
+    // Check if health is at zero
+    if (currentEnemy.hp <= 0) currentEnemy = randomChar()
+    else {
+        // THE ENEMY'S TURN
+        setTimeout(() => {
+            enemyAttack(player, button);
+            battleMessage.innerText = 'The enemy attacks you!'
+            document.querySelector('.enemy').classList.add('attack')
+            document.querySelector('#health').setAttribute("value", player.hp)
+        }, 3000);
+        setTimeout(() => {
+            document.querySelector('#char').classList.add('char-hit')
+            document.querySelector('.enemy').classList.remove('attack')
+        }, 4000);
+    }
     // Trigger the music playback elsewhere
     let jams = document.getElementById("myAudio")
     jams.volume = 0.2
@@ -99,7 +111,7 @@ function onClickHandler (button) {
         document.querySelector('#char').classList.remove('char-hit')
         battleMessage.innerText = `Choose an attack`
     }, 6000);
-    
+
     // setTimeout(() => {
     //     document.querySelector('.enemy').classList.add('char-hit')
     // }, 6500);
@@ -108,9 +120,12 @@ function onClickHandler (button) {
     // setTimeout(() => {
     //     document.querySelector('.enemy').classList.remove('char-hit')
     // }, 7000);
-    console.log(button)
-    enemyAttack(player, button);
+    // console.log(button)
+    //This is used to attack the player. why are we passing button in?
+
 }
+
+
 document.querySelector('progress').innerHTML = `$ {enemyarray[0]}`
 // function gameStart() {
 //     document.querySelector("#start").addEventListener {

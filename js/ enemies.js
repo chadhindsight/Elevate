@@ -4,6 +4,8 @@ const enemyArray = [
         weakness: ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi'],
         video: ['../meme/Wiggle.mp4','../meme/power of anime.mp4','../meme/yeah.mp4'],
         sounds: 'sdfsdf',
+        img: '../chars/Angry angie/angie.png',
+        background: '../chars/Angry angie/star.png',
         message: 'Angry Angie really needs her coffee',
         hp: 90
     }], 
@@ -12,15 +14,18 @@ const enemyArray = [
         weakness: ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi'],
         video: ['../meme/Wiggle.mp4','../meme/power of anime.mp4','../meme/yeah.mp4'],
         sounds: 'sdfsdf',
+        img: '../chars/Angry angie/angie.png',
+        background: '../chars/Angry angie/star.png',
         message: 'Here comes Carl with the bs again!',
         hp: 100
 }], 
 [{
     name: "Komplainin Karen",
     weakness: ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it'],
-    img: '../meme/mj.jpg',
     video: ['../meme/bad day.mp4','../meme/Just Do It.mp4'],
     sounds: 'sdfsdf',
+    img: '../chars/Angry angie/angie.png',
+    background: '../chars/Angry angie/star.png',
     message: 'Karen would like to speak to your manager!',
     hp: 100
 }], 
@@ -29,6 +34,8 @@ const enemyArray = [
     weakness: ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running'],
     video: ['../meme/superstar.mp4','../meme/dance.mp4','../meme/running.mp4'],
     sounds: 'sdfsdf',
+    img: '../chars/Angry angie/angie.png',
+    background: '../chars/Angry angie/star.png',
     message: 'Placholder text, baby!',
     hp: 85
 }], 
@@ -38,6 +45,8 @@ const enemyArray = [
     weakness: ['Shia lebouef creeping meme', 'casket dance meme', 'why are you running'],
     video: ['../meme/superstar.mp4','../meme/dance.mp4','../meme/running.mp4'],
     sounds: 'sdfsdf',
+    img: '../chars/Angry angie/angie.png',
+    background: '../chars/Angry angie/star.png',
     message: '21 pilots is the perfect!',
     hp: 100
 }],
@@ -45,7 +54,8 @@ const enemyArray = [
         name: "Tiger King",
         weakness: ['Carol Baskin', 'Corona Virus Cardi'],
         video: ['../meme/Coronavírus.mp4'],
-        img: '../meme/carol.jpg',
+        img: '../chars/Angry angie/angie.png',
+        background: '../chars/Angry angie/star.png',
         sounds: 'sdfsdf',
         message: `I'm outspoken, good looking, love to party and have fun.`,
         hp: 200 

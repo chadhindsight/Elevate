@@ -1,3 +1,5 @@
+//currentEnemy is the variable that stores the value of the current enemy
+let currentEnemy 
 // PLAYER CLASS & RELATED STUFF
  const player = {
         hp: 100,
@@ -13,7 +15,7 @@
                 document.querySelector('.enemy').classList.remove('char-hit')
             }, 1500);
             this.playerTurn = false;   
-         return damageCalc(randomChar())
+         return damageCalc(currentEnemy)
      }   
 }
 
@@ -22,12 +24,10 @@ class Enemy {
     constructor(name, player) {
         this.name = name
         this.hp = 100;
-        this.attack = function(cb) {
-            return cb;
-        }
+        
     }
 }    
-
+// Second param is passed in to disable button from being spammed by player
 function enemyAttack(user, buttonChoice) {
     buttonChoice.setAttribute("disabled", 'true')
     console.log(buttonChoice)
@@ -38,7 +38,18 @@ function enemyAttack(user, buttonChoice) {
     
     // playerTurn !=playerTurn
 }
+let randomChar = () => {
+    if (enemyArray.length = 1) {
+        // if array has only one char remaining return it and this is Tiger King
+        return new Enemy(enemyArray[0][0])
+    }
+    let firstArr = Math.floor(Math.random() * (enemyArray.length - 1));
+    console.log(enemyArray, enemyArray[firstArr], firstArr)
+    let enemy = enemyArray[firstArr].splice(~~(Math.random() * enemyArray[firstArr].length), 1);
+    if (enemyArray[firstArr].length === 0) enemyArray.splice(firstArr, 1);
 
+    return new Enemy(enemy);
+}
 ///////NOTES///////
 
 // Maybe make a function to calculate critical hits and pass that function to any functions that deals with attacks
@@ -53,7 +64,7 @@ let superEffective = Math.ceil((Math.random() * 10));
 let miss = Math.floor((Math.random() * 6));
 
 function damageCalc(character){
-    document.querySelector('#enemyhp')[enemyhp]= character.hp
+    // 
     critical = Math.ceil((Math.random() * 10));
     superEffective = Math.ceil((Math.random() * 10));
     miss = Math.floor((Math.random() * 6));
@@ -66,18 +77,18 @@ function damageCalc(character){
         // MESSAGES THAT WILL GET 
         
     else if (critical >= 8) {
-        console.log(character.hp)
         character.hp -= 25
+        console.log(character.hp)
         return message = 'Critical hit'
     }
     else if (superEffective === 1 || superEffective === 5 ) {
-        console.log(character.hp)
         character.hp -= 30
+        console.log(character.hp)
         return message = `It's super effective!`
     }
     else {
-        console.log(character.hp)
         character.hp -= 20
+        console.log(character.hp)
         return message = 'Opponent lost 20 health'
     }
  
