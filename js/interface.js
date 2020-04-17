@@ -49,9 +49,12 @@ backButton.onclick = () => {
 function loadEnemy() {
     // 1st call new randChar / health
     currentEnemy = randomChar()
+    console.log(currentEnemy)
     // Since intialized it will have the full bar
     document.querySelector('#enemyhp').setAttribute("value", currentEnemy.hp)
     document.querySelector('#enemyhp').setAttribute("max", currentEnemy.hp)
+    document.getElementById('angie').setAttribute('src', currentEnemy.img);
+    document.querySelector('body').style.background = currentEnemy.background;
     // change dom /img /heal;th bar / music / emotes
     // first time you load game calla loadEnemy
 }

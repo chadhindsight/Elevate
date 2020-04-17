@@ -20,13 +20,13 @@ let currentEnemy
 }
 
 //////ENEMY CLASSES//////
-class Enemy {
-    constructor(name, player) {
-        this.name = name
-        this.hp = 100;
+// class Enemy {
+//     constructor(name, player) {
+//         this.name = name
+//         this.hp = 100;
         
-    }
-}    
+//     }
+// }    
 // Second param is passed in to disable button from being spammed by player
 function enemyAttack(user, buttonChoice) {
     buttonChoice.setAttribute("disabled", 'true')
@@ -39,16 +39,16 @@ function enemyAttack(user, buttonChoice) {
     // playerTurn !=playerTurn
 }
 let randomChar = () => {
-    if (enemyArray.length = 1) {
+    if (enemyArray.length === 1) {
         // if array has only one char remaining return it and this is Tiger King
-        return new Enemy(enemyArray[0][0])
+        return enemyArray[0][0];
     }
     let firstArr = Math.floor(Math.random() * (enemyArray.length - 1));
     console.log(enemyArray, enemyArray[firstArr], firstArr)
     let enemy = enemyArray[firstArr].splice(~~(Math.random() * enemyArray[firstArr].length), 1);
     if (enemyArray[firstArr].length === 0) enemyArray.splice(firstArr, 1);
 
-    return new Enemy(enemy);
+    return enemy[0];
 }
 ///////NOTES///////
 
