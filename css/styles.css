@@ -1,5 +1,5 @@
 body {
-  background: url('../chars/Tiger\ King/zoo.jpg') ;
+  background: url('../chars/Angry-angie/star.jpg') ;
   background-size: 100%;
   background-repeat: no-repeat;
   position: relative;
@@ -222,4 +222,43 @@ body {
 .box .actions button:active {
   background: #555;
   border-color: #666;
+}
+
+progress#health
+{  position: absolute;
+  right: 52%;
+  top: 6%;
+  width: 40%;
+  height: 5%;
+
+}
+
+progress#enemyhp
+{position: absolute;
+  right: 3%;
+  top: 84%;
+  width: 38%;
+  height: 5%;
+  bottom: 24%;
+}
+
+.bar{
+
+  position: absolute;
+  right: 49%;
+  top: 2%;
+  width: 53%;
+  height: 14%;
+
+
+}
+
+ .enemybar{
+  position: absolute;
+  right: 0%;
+  top: 80%;
+  width: 51%;
+  height: 14%;
+  bottom: 24%;
+  
 }

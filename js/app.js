@@ -1,6 +1,6 @@
 // PLAYER CLASS & RELATED STUFF
  const player = {
-        hp: 105,
+        hp: 100,
         weakness: ['shaq wiggle face', 'stephen A. Smith bad day', 'casket dance meme'],
         playerTurn: true,
     // PLAYER'S MOVE LOGIC: determine the player's turn by checking a boolean value
@@ -13,7 +13,7 @@
                 document.querySelector('.enemy').classList.remove('char-hit')
             }, 1500);
             this.playerTurn = false;   
-         return damageCalc(badGuy)
+         return damageCalc(randomChar())
      }   
 }
 
@@ -31,7 +31,7 @@ class Enemy {
             break;
             case "Crazy Carl":
                 this.weakness = ['shaq wiggle face', 'shaq rave', 'chef ainsley yea boi']
-                this.hp = 140
+                this.hp =100
             break;
             case "Negative Nancy":
                 this.weakness = ['crying jordan', 'stephen A. Smith bad day', 'shia lebeouf do it']
@@ -55,11 +55,11 @@ class Enemy {
     }
 }    
 
-function enemyAttack(enemy, buttonChoice) {
+function enemyAttack(user, buttonChoice) {
     buttonChoice.setAttribute("disabled", 'true')
     console.log(buttonChoice)
     setTimeout(() => {
-        enemy.attack(()=>console.log('attack'))(enemy)
+       damageCalc(user)
        buttonChoice.removeAttribute("disabled")
     }, 2000);
     
@@ -80,26 +80,34 @@ let superEffective = Math.ceil((Math.random() * 10));
 let miss = Math.floor((Math.random() * 6));
 
 function damageCalc(character){
+    document.querySelector('#enemyhp')[enemyhp]= character.hp
     critical = Math.ceil((Math.random() * 10));
     superEffective = Math.ceil((Math.random() * 10));
     miss = Math.floor((Math.random() * 6));
     // miss rate
     // let miss = Math.floor((Math.random() * 6));
-    if( miss === 5) return message = 'Attack missed!'
+    if( miss === 4) {
+    return message = 'Attack missed!'
+    }
         // This covers critical, super effective, & base damage cases
-        // MESSAGES THAT WILL GET DISPLAYED
+        // MESSAGES THAT WILL GET 
+        
     else if (critical >= 8) {
+        console.log(character.hp)
         character.hp -= 25
         return message = 'Critical hit'
     }
     else if (superEffective === 1 || superEffective === 5 ) {
+        console.log(character.hp)
         character.hp -= 30
         return message = `It's super effective!`
     }
     else {
-        character.hp - 20
+        console.log(character.hp)
+        character.hp -= 20
         return message = 'Opponent lost 20 health'
     }
+ 
 }
 // Maybe put them back here
 // document.querySelector("#game button").onclick = function(){

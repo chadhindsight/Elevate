@@ -104,14 +104,15 @@ function onClickHandler (button) {
     // setTimeout(() => {
     //     document.querySelector('.enemy').classList.add('char-hit')
     // }, 6500);
-
+    // console.log(button)
+    // player.playerAttack(randomChar(), button)
     // setTimeout(() => {
     //     document.querySelector('.enemy').classList.remove('char-hit')
     // }, 7000);
     console.log(button)
-    enemyAttack(randomChar(), button);
+    enemyAttack(player, button);
 }
-
+document.querySelector('progress').innerHTML = `$ {enemyarray[0]}`
 // function gameStart() {
 //     document.querySelector("#start").addEventListener {
 //     }
